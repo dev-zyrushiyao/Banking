@@ -2,16 +2,19 @@ package com.BankingApp;
 
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Banking {
  public static void main(String[] args) {
 	
-	
+	 
 	
 	 int mode;
 		Scanner scanner = new Scanner(System.in);
@@ -51,31 +54,21 @@ public class Banking {
 									System.out.print("Deposit Amount:");
 									double depositAmount = scanner.nextDouble();
 									user.setCurrentBalance(depositAmount);
+									
+									//receipt for deposit method
+									//enter code here
+									
 									break;
 								case 3:
 									System.out.println("Withdraw Amount:");
 									double withdrawAmount = scanner.nextDouble();
 									user.setWithdrawCurrentBalance(withdrawAmount);
 									
-									//printing Receipt -> For Method to fix + implement time + add static double on main class + Make Enum Transaction Type
-										try {
-											LocalDate localDate = LocalDate.now();
-											BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("Widthraw_Receipt.txt"));
-											bufferedWriter.write("--------------------------");
-											bufferedWriter.write("\n|Date: " + localDate + 
-																 "\n|UserID: " + user.getId() +  
-																 "\n|User:" + user.getName() +  
-																 "\n|AccountType: " + user.getAccountType() + 
-																 "\n|TransactionType: WITHDRAW" + 
-																 "\n|Withdraw Amount " + withdrawAmount + 
-																 "\n|Balance: " + user.getCurrentBalance() + 
-																 "\n");
-											bufferedWriter.write("--------------------------");
-											bufferedWriter.close();
-										} catch (IOException e) {
-											// TODO Auto-generated catch block
-											e.printStackTrace();
-										}
+									//insert print method here
+									printReceipt(user, withdrawAmount, TransactionType.WITHDRAW );
+									
+									//for validation do not print receipt when did not satisfy the condition of balance checking
+									//enter the code here
 									
 									break;
 								case 4:
@@ -100,8 +93,50 @@ public class Banking {
 	
 	
 
+ }
+ 	
+ 	static void printReceipt(User user , double withdrawAmount , Enum<TransactionType> transactionEnum) {
+ 		LocalDate localDate = LocalDate.now();
+		
+		//Local Time Format for receipt
+		String timeColonPattern = "hh-mm-ss a";
+		DateTimeFormatter timeColonFormatter = DateTimeFormatter.ofPattern(timeColonPattern);
+		LocalTime localTime = LocalTime.now();
+		String formattedTime = timeColonFormatter.format(localTime).toUpperCase(); //replaced ':' due to windows nameformatting; toUppercase() for make 'AM/PM' capital letters
+		
+		//File naming format: USER_DATE_MOVEMENT_TIME.TXT 
+		String fileNamePattern = String.format("%s_%s_%s_%s.txt", user.getName().toUpperCase(), localDate, transactionEnum , formattedTime);
+
+		File file = new File(fileNamePattern);
+		
+		if(!file.exists()) {
+			try {
+				
+				BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file));
+				bufferedWriter.write("|-------------------------");
+				bufferedWriter.write("\n|Date: " + localDate + 
+						"\n|Time: " + formattedTime +
+						"\n|UserID: " + user.getId() +  
+						"\n|User:" + user.getName() +  
+						"\n|AccountType: " + user.getAccountType() + 
+						"\n|TransactionType: " + transactionEnum +  
+						"\n|Withdraw Amount: " + withdrawAmount +
+						"\n|Balance: " + user.getCurrentBalance() + 
+						"\n");
+				bufferedWriter.write("|-------------------------");
+				bufferedWriter.close();
+
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}else {
+			System.out.println("FILE EXIST");
+		}
+		
+		
  	}
- 
+ 	
 
 }
 

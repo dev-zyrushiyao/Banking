@@ -5,7 +5,7 @@ package com.BankingApp;
 public class User extends UserData implements GenerateID , AccountView {	
 	
 	private String name;
-	private AccountType accountType;
+	private Enum<AccountType> accountType;
 	private Integer id;
 	
 	public User() {
@@ -14,7 +14,7 @@ public class User extends UserData implements GenerateID , AccountView {
 	}
 	
 
-	public User(String name, AccountType accountType) {
+	public User(String name, Enum<AccountType> accountType) {
 		super();
 		this.name = name;
 		this.accountType = accountType;
@@ -31,7 +31,7 @@ public class User extends UserData implements GenerateID , AccountView {
 		this.name = name;
 	}
 
-	public AccountType getAccountType() {
+	public Enum<AccountType> getAccountType() {
 		return accountType;
 	}
 

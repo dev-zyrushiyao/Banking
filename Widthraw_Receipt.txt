@@ -1,9 +1,0 @@
---------------------------
-|Date: 2024-03-06
-|UserID: 588752654
-|User:ZyrusHiyao
-|AccountType: SAVINGS
-|TransactionType: WITHDRAW
-|Withdraw Amount 400.0
-|Balance: 600.0
---------------------------

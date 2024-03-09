@@ -9,8 +9,8 @@ import java.util.Date;
 public class UserData implements Transaction {
 	
 	private double currentBalance = 0.0;
-	private final double minDepositAmount = 100.0;  //For fixing to Static
-	private final double minWithdrawAmount = 200.0; //For fixing to Static
+	public static final double minDepositAmount = 100.0;  
+	public static final double minWithdrawAmount = 200.0; 
 	
 	private String messageDisplay = "Error ";
 	private String error_1 = messageDisplay.concat("#1: Deposit is minimum of 100 peso(s)");
@@ -43,8 +43,8 @@ public class UserData implements Transaction {
 	public void setWithdrawCurrentBalance(double withdrawAmount) {
 		if(withdrawAmount >= minWithdrawAmount) {
 			if(withdrawAmount <= currentBalance) {
-				userWithdrawPrint();			
 				this.currentBalance -= withdrawAmount;
+				userWithdrawPrint();			
 			}else {
 				System.out.println("*------------------------------*");
 				System.out.println(error_3);

@@ -1,0 +1,10 @@
+|-------------------------
+|Date: 2024-03-09
+|Time: 04-27-57 PM
+|UserID: 958997914
+|User:PaulMcCartney
+|AccountType: SAVINGS
+|TransactionType: WITHDRAW
+|Withdraw Amount: 2000.0
+|Balance: 8000.0
+|-------------------------
