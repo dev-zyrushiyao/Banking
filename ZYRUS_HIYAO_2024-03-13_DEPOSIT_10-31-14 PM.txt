@@ -1,0 +1,10 @@
+|-------------------------
+|Date: 2024-03-13
+|Time: 10-31-14 PM
+|UserID: 113957889
+|User:Zyrus_Hiyao
+|AccountType: SAVINGS
+|TransactionType: DEPOSIT
+|Transaction Amount: 5030.0
+|Balance: 10030.0
+|-------------------------

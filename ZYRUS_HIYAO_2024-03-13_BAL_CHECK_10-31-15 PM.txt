@@ -1,0 +1,10 @@
+|-------------------------
+|Date: 2024-03-13
+|Time: 10-31-15 PM
+|UserID: 113957889
+|User:Zyrus_Hiyao
+|AccountType: SAVINGS
+|TransactionType: BAL_CHECK
+|Transaction Amount: null
+|Balance: 10030.0
+|-------------------------

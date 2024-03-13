@@ -13,15 +13,12 @@ public class User extends UserData implements GenerateID , AccountView {
 		// TODO Auto-generated constructor stub
 	}
 	
-
 	public User(String name, Enum<AccountType> accountType) {
 		super();
 		this.name = name;
 		this.accountType = accountType;
 		this.id = createID(); //from Interface
 	}
-
-
 
 	public String getName() {
 		return name;

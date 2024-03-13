@@ -2,5 +2,6 @@ package com.BankingApp;
 
 public enum TransactionType {
 	DEPOSIT,
-	WITHDRAW
+	WITHDRAW,
+	BAL_CHECK
 }
