@@ -1,0 +1,10 @@
+|-------------------------
+|Date: 2024-03-20
+|Time: 06-09-38 PM
+|UserID: 951018299
+|User:asdas;ldkasd
+|AccountType: SAVINGS
+|TransactionType: DEPOSIT
+|Transaction Amount: 5000.0
+|Balance: 5000.0
+|-------------------------

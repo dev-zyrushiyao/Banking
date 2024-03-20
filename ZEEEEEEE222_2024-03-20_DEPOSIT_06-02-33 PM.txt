@@ -1,0 +1,10 @@
+|-------------------------
+|Date: 2024-03-20
+|Time: 06-02-33 PM
+|UserID: 791518553
+|User:Zeeeeeee222
+|AccountType: SAVINGS
+|TransactionType: DEPOSIT
+|Transaction Amount: 5000.0
+|Balance: 5000.0
+|-------------------------

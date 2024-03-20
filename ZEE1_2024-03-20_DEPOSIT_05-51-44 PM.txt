@@ -1,0 +1,10 @@
+|-------------------------
+|Date: 2024-03-20
+|Time: 05-51-44 PM
+|UserID: 590748174
+|User:Zee1
+|AccountType: SAVINGS
+|TransactionType: DEPOSIT
+|Transaction Amount: 5000.0
+|Balance: 5000.0
+|-------------------------

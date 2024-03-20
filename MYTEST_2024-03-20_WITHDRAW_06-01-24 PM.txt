@@ -1,0 +1,10 @@
+|-------------------------
+|Date: 2024-03-20
+|Time: 06-01-24 PM
+|UserID: 572972627
+|User:MyTest
+|AccountType: SAVINGS
+|TransactionType: WITHDRAW
+|Transaction Amount: 350.0
+|Balance: 11650.0
+|-------------------------

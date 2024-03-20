@@ -1,0 +1,10 @@
+|-------------------------
+|Date: 2024-03-20
+|Time: 05-51-14 PM
+|UserID: 414672593
+|User:Zee
+|AccountType: SAVINGS
+|TransactionType: BAL_CHECK
+|Transaction Amount: null
+|Balance: 7800.0
+|-------------------------

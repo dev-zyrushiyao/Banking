@@ -1,0 +1,10 @@
+|-------------------------
+|Date: 2024-03-20
+|Time: 06-18-40 PM
+|UserID: 426049782
+|User:Zyrus222
+|AccountType: SAVINGS
+|TransactionType: BAL_CHECK
+|Transaction Amount: null
+|Balance: 4650.0
+|-------------------------

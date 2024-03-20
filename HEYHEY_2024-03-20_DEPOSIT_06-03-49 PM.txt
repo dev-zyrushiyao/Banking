@@ -1,0 +1,10 @@
+|-------------------------
+|Date: 2024-03-20
+|Time: 06-03-49 PM
+|UserID: 524575994
+|User:heyhey
+|AccountType: SAVINGS
+|TransactionType: DEPOSIT
+|Transaction Amount: 5000.0
+|Balance: 5000.0
+|-------------------------

@@ -1,0 +1,10 @@
+|-------------------------
+|Date: 2024-03-20
+|Time: 05-31-51 PM
+|UserID: 788304693
+|User:HeyJude
+|AccountType: SAVINGS
+|TransactionType: BAL_CHECK
+|Transaction Amount: null
+|Balance: 4000.0
+|-------------------------

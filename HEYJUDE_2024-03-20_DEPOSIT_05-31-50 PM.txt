@@ -1,0 +1,10 @@
+|-------------------------
+|Date: 2024-03-20
+|Time: 05-31-50 PM
+|UserID: 788304693
+|User:HeyJude
+|AccountType: SAVINGS
+|TransactionType: DEPOSIT
+|Transaction Amount: 4000.0
+|Balance: 4000.0
+|-------------------------

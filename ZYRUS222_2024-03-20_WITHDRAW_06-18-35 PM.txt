@@ -1,0 +1,10 @@
+|-------------------------
+|Date: 2024-03-20
+|Time: 06-18-35 PM
+|UserID: 426049782
+|User:Zyrus222
+|AccountType: SAVINGS
+|TransactionType: WITHDRAW
+|Transaction Amount: 350.0
+|Balance: 4650.0
+|-------------------------

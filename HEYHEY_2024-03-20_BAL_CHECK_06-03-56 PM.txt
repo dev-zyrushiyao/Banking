@@ -1,0 +1,10 @@
+|-------------------------
+|Date: 2024-03-20
+|Time: 06-03-56 PM
+|UserID: 524575994
+|User:heyhey
+|AccountType: SAVINGS
+|TransactionType: BAL_CHECK
+|Transaction Amount: null
+|Balance: 11650.0
+|-------------------------

@@ -1,0 +1,10 @@
+|-------------------------
+|Date: 2024-03-20
+|Time: 06-16-06 PM
+|UserID: 383686678
+|User:Zfsalkdjasldjasd
+|AccountType: SAVINGS
+|TransactionType: BAL_CHECK
+|Transaction Amount: null
+|Balance: 50000.0
+|-------------------------

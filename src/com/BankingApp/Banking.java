@@ -1,22 +1,30 @@
 package com.BankingApp;
 
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Banking {
- public static void main(String[] args) {
-
-	 int mode;
-		Scanner scanner = new Scanner(System.in);
 	
+	//[Global Variable]	
+		//Get all the transaction file name of the user as Array
+		private static ArrayList<String> userTransactionList = new ArrayList<>();
+	
+ public static void main(String[] args) {
+	int mode;
+	Scanner scanner = new Scanner(System.in);
+
 	try {
 		do {
 			 System.out.println("*---------------------------------*");
@@ -41,44 +49,48 @@ public class Banking {
 					int transaction;
 						do {
 							System.out.println("Choose a Transaction:");
-							System.out.println("[1]-Account Overview [2]-Deposit [3]-Withdraw [4]-Exit [5]-Print Transaction [6]-ExitApp"); //To Readjust the Exit as Mode: 5
+							System.out.println("[1]-Account Overview [2]-Deposit [3]-Withdraw [4]-Exit [5]-Print Transaction [6]-ExitApp");
 							System.out.print("Input:");
 							transaction = scanner.nextInt();
 							System.out.println("*---------------------------------*");
 							
 							switch (transaction) {
-								case 1:
+								case 1: //Account Overview
 									user.getAccountDetails();
-									printReceipt(user, null, TransactionType.BAL_CHECK);
+									createReceipt(user, null, TransactionType.BAL_CHECK);
 									break;
-								case 2:
+								case 2: //Deposit
 									System.out.print("Deposit Amount:");
 									Double depositAmount = scanner.nextDouble();
 									
 									//validation and execution
 									validateTransaction(TransactionType.DEPOSIT, depositAmount, Transaction.minDepositAmount, user);
 									break;
-								case 3:
+								case 3: //Withdraw
 									System.out.print("Withdraw Amount:");
 									Double withdrawAmount = scanner.nextDouble();
 									
 									//validation and execution
 									validateTransaction(TransactionType.WITHDRAW, withdrawAmount , Transaction.minWithdrawAmount , user);
 									break;
-								case 4:
-									System.out.println("Exit transaction");
+								case 4: //Read Receipt - using global variable as parameters
+									System.out.println("Please input the transaction filename:");
+									String transactionFileName = scanner.next();
+									transactionFileName += scanner.nextLine(); //adding [White Space] "AM/PM"
+							
+									readReceipt(transactionFileName.concat(".txt"));
+									
 									break;
-								case 5:
-									//to add file reader
+								case 5: //Show all the user's transaction - using global variable as parameters
+									showAllTransaction(userTransactionList);
 									break;
-								case 6:
-									//triggering the exit
+								case 6: //Exit App
 									terminateApp(scanner);
 									break;
 								default: 
 									System.out.println("Invalid mode");
 								}
-							} while (transaction !=4);
+							} while (transaction !=6);
 					
 					break; //case1 [mode]
 				default: 
@@ -94,7 +106,7 @@ public class Banking {
 	
  } //end of main method
  	
- 	static void printReceipt(User user , Double transactionAmount , Enum<TransactionType> transactionEnum) {
+ 	static void createReceipt(User user , Double transactionAmount , Enum<TransactionType> transactionEnum) {
  		LocalDate localDate = LocalDate.now();
 		
 		//Local Time Format for receipt
@@ -108,6 +120,9 @@ public class Banking {
 		//File naming format: USER_DATE_MOVEMENT_TIME.TXT 
 		String fileNamePattern = String.format("%s_%s_%s_%s.txt", user.getName().toUpperCase(), localDate, transactionEnum , formattedTime);
 		File file = new File(fileNamePattern);
+		
+		//Add filenames to an [Global] arrayList [showAllTransaction()]
+		userTransactionList.add(file.getName().replace(".txt", ""));
 		
 		//if file does not exist then make a new file [a condition to avoid updating a single text file]
 		if(!file.exists()) {
@@ -132,7 +147,31 @@ public class Banking {
 			}
 		}else {
 			System.out.println("FILE EXIST");
-		}
+		}	
+ 	}
+ 	
+ 	static void readReceipt(String latestTransaction) {
+ 		try {
+			BufferedReader bufferedReader = new BufferedReader(new FileReader(latestTransaction));
+			
+			//Loop the reader and put it all to string if null then it reached the end of file-text
+			String receipt;
+			while((receipt = bufferedReader.readLine()) != null) {
+				System.out.println(receipt);
+			}
+			bufferedReader.close();
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("File not found.");
+		} 
+ 	}
+ 	
+ 	static void showAllTransaction(ArrayList<String> userTransactionList) {
+ 		for(String list : userTransactionList) {
+ 			System.out.println(list);
+ 		}
  	}
  	
  	static void validateTransaction(Enum<TransactionType> transEnum, Double transactionAmount , double minimumAmount , User user) {
@@ -149,7 +188,7 @@ public class Banking {
 					 user.printTransactionStatus(transactionType);
 					 
 					//print-generate receipt
-					printReceipt(user, transactionAmount, transactionType );
+					createReceipt(user, transactionAmount, transactionType);
 				 }else {
 					//Validation #3: Print the error that the balance should be equal or higher than the transaction
 					 System.out.println(Transaction.error_3);
@@ -163,7 +202,7 @@ public class Banking {
 					//Deposit the desired amount
 					user.setDepositCurrentBalance(transactionAmount);
 					user.printTransactionStatus(transactionType);
-					printReceipt(user, transactionAmount, transactionType);
+					createReceipt(user, transactionAmount, transactionType);
 				}
 				break;
 			default:
@@ -178,6 +217,6 @@ public class Banking {
  		scanner.close();
  		System.exit(0);
  	}
-
+	
 }
 

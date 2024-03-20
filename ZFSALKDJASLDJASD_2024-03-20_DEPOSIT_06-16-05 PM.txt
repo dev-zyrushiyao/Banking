@@ -1,0 +1,10 @@
+|-------------------------
+|Date: 2024-03-20
+|Time: 06-16-05 PM
+|UserID: 383686678
+|User:Zfsalkdjasldjasd
+|AccountType: SAVINGS
+|TransactionType: DEPOSIT
+|Transaction Amount: 50000.0
+|Balance: 50000.0
+|-------------------------
