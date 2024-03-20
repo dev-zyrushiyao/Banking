@@ -49,7 +49,7 @@ public class Banking {
 					int transaction;
 						do {
 							System.out.println("Choose a Transaction:");
-							System.out.println("[1]-Account Overview [2]-Deposit [3]-Withdraw [4]-Exit [5]-Print Transaction [6]-ExitApp");
+							System.out.println("[1]-Account Overview [2]-Deposit [3]-Withdraw [4]-Read Transaction [5]-View Transaction List [6]-ExitApp");
 							System.out.print("Input:");
 							transaction = scanner.nextInt();
 							System.out.println("*---------------------------------*");
@@ -82,7 +82,11 @@ public class Banking {
 									
 									break;
 								case 5: //Show all the user's transaction - using global variable as parameters
-									showAllTransaction(userTransactionList);
+									if(userTransactionList.isEmpty()) {
+										System.out.println("*-NO TRANSACTION FOUND-*");
+									}else {
+										showAllTransaction(userTransactionList);
+									}
 									break;
 								case 6: //Exit App
 									terminateApp(scanner);
@@ -165,6 +169,7 @@ public class Banking {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			System.out.println("File not found.");
+			System.out.println("Please check the user transaction list and copy/paste a single transaction to read");
 		} 
  	}
  	
